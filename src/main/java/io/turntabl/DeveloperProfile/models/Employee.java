@@ -2,7 +2,6 @@ package io.turntabl.DeveloperProfile.models;
 
 import java.util.Date;
 import java.util.List;
-import io.turntabl.models.Project;
 
 public class Employee {
     private int employee_id;

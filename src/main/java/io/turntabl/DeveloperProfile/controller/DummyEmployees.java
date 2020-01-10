@@ -4,8 +4,8 @@ package io.turntabl.DeveloperProfile.controller;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.turntabl.DeveloperProfile.models.Employee;
+import io.turntabl.DeveloperProfile.models.Leave;
 import io.turntabl.DeveloperProfile.service.ReadJsonFromFile;
-import io.turntabl.models.Leave;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,7 +21,7 @@ public class DummyEmployees {
     private ReadJsonFromFile jsonFromFile = new ReadJsonFromFile();
 
     @ApiOperation("Get all employees in record")
-    @GetMapping("/customer")
+    @GetMapping("/employees")
     public List<Employee> getCustomer(){
         try {
             return jsonFromFile.getAllEmployees();
@@ -34,8 +34,13 @@ public class DummyEmployees {
     @ApiOperation("get the the day a developer is going on leave and when he/she is coming back")
     @GetMapping(value = "/leave/{employeeId}", produces = "application/json")
     public Leave deleteCustomer(
-            @PathVariable("employeeId") long id
+            @PathVariable("employeeId") String employeeId
     ){
-        return new Leave();
+        try {
+            return jsonFromFile.getLeave(employeeId).orElse(new Leave());
+        }catch (Exception e) {
+            e.printStackTrace();
+            return new Leave();
+        }
     }
 }
