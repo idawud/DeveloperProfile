@@ -1,8 +1,12 @@
 package io.turntabl.DeveloperProfile.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+
 import java.util.Date;
 import java.util.List;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Employee {
     private int employee_id;
     private String employee_firstname;
@@ -15,6 +19,8 @@ public class Employee {
     private Date employee_hire_date;
     private boolean employee_onleave;
     private List<String> tech_stack;
+
+    @JsonDeserialize(contentUsing = ProjectDeserializer.class)
     private List<Project> projects;
 
     public Employee() {
