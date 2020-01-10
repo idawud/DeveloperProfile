@@ -6,6 +6,7 @@ import io.swagger.annotations.ApiOperation;
 import io.turntabl.DeveloperProfile.models.Employee;
 import io.turntabl.DeveloperProfile.models.Leave;
 import io.turntabl.DeveloperProfile.service.ReadJsonFromFile;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,7 +19,8 @@ import java.util.List;
 @RestController
 @CrossOrigin(origins = "*")
 public class DummyEmployees {
-    private ReadJsonFromFile jsonFromFile = new ReadJsonFromFile();
+    @Autowired
+    private ReadJsonFromFile jsonFromFile;
 
     @ApiOperation("Get all employees in record")
     @GetMapping("/employees")
