@@ -1,4 +1,4 @@
-package io.turntabl.models;
+package io.turntabl.DeveloperProfile.models;
 
 import java.util.Date;
 
