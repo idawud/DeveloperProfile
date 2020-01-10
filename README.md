@@ -6,3 +6,5 @@ Endpoint for dummy employee list: https://ttmsdeveloperprofile.herokuapp.com/emp
 
 
 Get employees leave duration: https://ttmsdeveloperprofile.herokuapp.com/leave/{employeeId}
+
+Learn more : https://ttmsdeveloperprofile.herokuapp.com/swagger-ui.html
