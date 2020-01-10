@@ -1,7 +1,5 @@
 package io.turntabl.DeveloperProfile.models;
 
-import java.util.Date;
-
 public class Project {
     private int project_id;
     private String project_name;
