@@ -15,7 +15,7 @@ public class DeveloperProfileApplication {
 	}
 
 	@Bean
-	public ReadJsonFromFile getCustomerDAO() {
+	public ReadJsonFromFile jsonFromFile() {
 		return new ReadJsonFromFile();
 	}
 

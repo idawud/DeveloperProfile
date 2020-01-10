@@ -3,7 +3,6 @@ package io.turntabl.DeveloperProfile.models;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
-import java.util.Date;
 import java.util.List;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -16,11 +15,9 @@ public class Employee {
     private String employee_address;
     private String employee_dev_level;
     private String employee_gender;
-    private Date employee_hire_date;
+    private String employee_hire_date;
     private boolean employee_onleave;
     private List<String> tech_stack;
-
-    @JsonDeserialize(contentUsing = ProjectDeserializer.class)
     private List<Project> projects;
 
     public Employee() {
@@ -90,19 +87,19 @@ public class Employee {
         this.employee_gender = employee_gender;
     }
 
-    public Date getEmployee_hire_date() {
+    public String getEmployee_hire_date() {
         return employee_hire_date;
     }
 
-    public void setEmployee_hire_date(Date employee_hire_date) {
+    public void setEmployee_hire_date(String employee_hire_date) {
         this.employee_hire_date = employee_hire_date;
     }
 
-    public boolean getEmployee_onleave() {
+    public boolean isEmployee_onleave() {
         return employee_onleave;
     }
 
-    public void setEmployee_onleave(Boolean employee_onleave) {
+    public void setEmployee_onleave(boolean employee_onleave) {
         this.employee_onleave = employee_onleave;
     }
 

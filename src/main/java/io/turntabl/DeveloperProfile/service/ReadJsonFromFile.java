@@ -1,7 +1,6 @@
 package io.turntabl.DeveloperProfile.service;
 
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.turntabl.DeveloperProfile.models.Employee;
@@ -10,7 +9,9 @@ import io.turntabl.DeveloperProfile.models.Project;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 
 public class ReadJsonFromFile {
     private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
@@ -34,7 +35,7 @@ public class ReadJsonFromFile {
             emp.setEmployee_firstname(next.get("employee_firstname").asText());
             emp.setEmployee_lastname(next.get("employee_lastname").asText());
             emp.setEmployee_onleave(next.get("employee_onleave").asBoolean());
-            // emp.setEmployee_hire_date(new Date(next.get("employee_hire_date").asText()));
+            emp.setEmployee_hire_date(next.get("employee_hire_date").asText());
             emp.setEmployee_address(next.get("employee_address").asText());
             emp.setEmployee_email(next.get("employee_email").asText());
             emp.setEmployee_dev_level(next.get("employee_gender").asText());
@@ -50,11 +51,9 @@ public class ReadJsonFromFile {
             for (JsonNode tech: next.get("project")){
                 projects.add(OBJECT_MAPPER.readValue(tech.toPrettyString(), Project.class));
             }
-            //System.out.println(next.get("project"));
-
-           // emp.setProjects(OBJECT_MAPPER.readValue(next.get("projects").asText(), new TypeReference<List<Project>>() {}));
             emp.setProjects( projects);
-           employee.add(emp);
+
+            employee.add(emp);
         }
         return employee;
     }
