@@ -51,7 +51,7 @@
         "project_name":"platter APP",
         "project_description":"Weather Platter System",
         "project_start_date": "2019-10-01",
-        "project_end_date": "2019-10-014"
+        "project_end_date": "2019-10-14"
       },
       {
         "project_id":4,
@@ -137,15 +137,15 @@
         "project_id":10,
         "project_name":"alex management sys",
         "project_description":"alex mgnmt System",
-        "project_start_date": "2020-01-2",
-        "project_end_date": "2020-01-5"
+        "project_start_date": "2020-01-02",
+        "project_end_date": "2020-01-05"
       },
       {
         "project_id":11,
         "project_name":"future sys",
         "project_description":"future mgnmt System",
-        "project_start_date": "2020-02-5",
-        "project_end_date": "2020-03-5"
+        "project_start_date": "2020-02-05",
+        "project_end_date": "2020-03-05"
       }
     ]
   },
