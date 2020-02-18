@@ -26,7 +26,9 @@ public class DummyEmployees {
     @GetMapping("/employees")
     public List<Employee> getCustomer(){
         try {
-            return jsonFromFile.getAllEmployees();
+            List<Employee> allEmployees = jsonFromFile.getAllEmployees();
+            allEmployees.addAll(jsonFromFile.getAllEmployees().subList(0,2));
+            return allEmployees;
         }catch (Exception e) {
             e.printStackTrace();
             return new ArrayList<>();
