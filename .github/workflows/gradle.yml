@@ -8,10 +8,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: connect to aws ec2 instance
-      run: | 
-        SSH_AUTH_SOCK=/tmp/ssh-RFrEqn6pDsAe/agent.21110; export SSH_AUTH_SOCK;
-        SSH_AGENT_PID=21113; export SSH_AGENT_PID;
-        echo Agent pid 21113; 
-        eval `ssh-agent`
-        ssh-add - <<< ${{ secrets.EC2 }}
+    -  name: Setup SSH-Agent
+        uses: webfactory/ssh-agent@v0.2.0
+        with:
+          ssh-private-key: |
+            ${{ secrets.EC2 }} 
