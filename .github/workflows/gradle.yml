@@ -18,12 +18,10 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew build
     - name: connect to aws ec2 instance
-      run: |
-        eval `ssh-agent`
-        mkdir -p ~/.ssh 
-        chmod 600 ~/.ssh/id_rsa && chmod 700 ~/.ssh 
-        ssh-add - <<< "${{ secrets.EC2 }}
-        ssh-keyscan -t rsa ec2-111111111.us-east-2.compute.amazonaws.com >> ~/.ssh/known_hosts
-        ssh ubuntu@ec2-18-220-255-197.us-east-2.compute.amazonaws.com
+      uses: shimataro/ssh-key-action@v2
+      with:
+        key: ${{ secrets.SSH_KEY }}
+        name: id_rsa # optional
+        known_hosts: ${{ secrets.KNOWN_HOSTS }}
     - name: create file
       run: sudo touch hello.ttbl
