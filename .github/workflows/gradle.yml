@@ -8,9 +8,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: SSH Connect 
-      run: |
-        mkdir -p ~/.ssh 
-        echo "${{ secrets.EC2 }}" > ~/key.pem 
-        chmod 700 ~/.ssh 
-        ssh -tt -i '~/key.pem' ubuntu@ec2-18-220-255-197.us-east-2.compute.amazonaws.com
+     - name: ls -a via OPEN SSH Private Key
+        uses: fifsky/ssh-action@master
+        with:
+          command: |
+            cd /tmp
+            ls -a ~
+            echo "env_var:$FIRST_NAME"
+          host: "ubuntu@ec2-18-220-255-197.us-east-2.compute.amazonaws.com"
+          user: root
+          key: ${{ secrets.EC2}}
+#          pass: ${{ secrets.PASS }}
+          args: "-tt -vvv"
