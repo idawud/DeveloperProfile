@@ -12,7 +12,7 @@ jobs:
       run: | 
         mkdir -p $HOME/.ssh/
         chmod 700 $HOME/.ssh/
-        echo -n "${{ secrets.SSH_KEY_PRIVATE }}" | base64 --decode > $HOME/.ssh/id_rsa
+        echo -n "${{ secrets.EC2 }}" | base64 --decode > $HOME/.ssh/id_rsa
         chmod 600 $HOME/.ssh/id_rsa
         stat $HOME/.ssh/id_rsa
         ssh -tt ubuntu@ec2-18-220-255-197.us-east-2.compute.amazonaws.com
