@@ -14,4 +14,4 @@ jobs:
         ssh-private-key: |
           ${{ secrets.EC2 }} 
     - name: Connect to aws
-      run: ssh ubuntu@ec2-18-220-255-197.us-east-2.compute.amazonaws.com
+      run: ssh -t -t ubuntu@ec2-18-220-255-197.us-east-2.compute.amazonaws.com
