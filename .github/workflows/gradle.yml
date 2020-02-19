@@ -24,4 +24,4 @@ jobs:
         name: id_rsa # optional
         known_hosts: ${{ secrets.KNOWN_HOSTS }}
     - name: create file
-      run: sudo touch hello.ttbl
+      run: sudo ls -al ~
