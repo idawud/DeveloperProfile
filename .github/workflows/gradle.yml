@@ -12,6 +12,8 @@ jobs:
       run: |  
         mkdir -p $HOME/.ssh/
         chmod 700 $HOME/.ssh/
+        SSH_AUTH_SOCK=/tmp/ssh-agVZL13989/agent.13989; export SSH_AUTH_SOCK;
+        SSH_AGENT_PID=13990; export SSH_AGENT_PID;
         eval `ssh-agent`
         ssh-add - <<< ${{ secrets.EC2 }}
         chmod 600 $HOME/.ssh/id_rsa
