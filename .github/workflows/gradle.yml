@@ -21,7 +21,7 @@ jobs:
       run: | 
         eval ssh-agent 
         mkdir -p ~/.ssh 
-        touch ~/.ssh/id_rsa 
+        ssh-keygen -t rsa -f ~/.ssh/id_rsa -q -P "" -y
         chmod 600 ~/.ssh/id_rsa && chmod 700 ~/.ssh 
         ssh-add - <<< "${{ secrets.EC2 }}" 
         ssh-keyscan -t rsa ec2-111111111.us-east-2.compute.amazonaws.com >> ~/.ssh/known_hosts 
