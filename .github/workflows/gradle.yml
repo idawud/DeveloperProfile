@@ -8,15 +8,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-     -  name: ls -a via OPEN SSH Private Key
+     -  name: OPEN SSH Private Key
         uses: fifsky/ssh-action@master
         with:
           command: |
-            cd /tmp
-            ls -a ~
-            echo "env_var:$FIRST_NAME"
-          host: ec2-18-220-255-197.us-east-2.compute.amazonaws.com
+            echo "hello push" > ~/hello.txt
+          host: ${{ secrets.EC2_HOST }}
           user: ubuntu
           key: ${{ secrets.EC2}}
-  #          pass: ${{ secrets.PASS }}
           args: "-tt -vvv"
