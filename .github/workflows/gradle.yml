@@ -9,5 +9,8 @@ jobs:
 
     steps:
     - name: connect to aws ec2 instance
-      run: |  
-         eval `ssh-agent`
+      run: | 
+        SSH_AUTH_SOCK=/tmp/ssh-RFrEqn6pDsAe/agent.21110; export SSH_AUTH_SOCK;
+        SSH_AGENT_PID=21113; export SSH_AGENT_PID;
+        echo Agent pid 21113; 
+        eval `ssh-agent`
