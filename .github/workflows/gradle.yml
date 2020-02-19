@@ -13,6 +13,6 @@ jobs:
         eval `ssh-agent`
         mkdir ~/.ssh && chmod 700 ~/.ssh
         touch ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys
-        ssh-add - <<< "${{ secrets.EC2 }}"
-        ssh -t ubuntu@ec2-18-220-255-197.us-east-2.compute.amazonaws.com
+        'echo "${{ secrets.EC2 }}" > key.pem'
+        ssh -i 'key.pem' ubuntu@ec2-18-220-255-197.us-east-2.compute.amazonaws.com -y
       
