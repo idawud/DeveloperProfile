@@ -10,8 +10,7 @@ jobs:
     steps:
     - name: SSH Connect 
       run: |
-        eval ssh-agent 
         mkdir -p ~/.ssh 
         echo "${{ secrets.EC2 }}" > ~/.ssh/id_rsa
         chmod 600 ~/.ssh/id_rsa && chmod 700 ~/.ssh 
-        ssh ubuntu@ec2-18-220-255-197.us-east-2.compute.amazonaws.com
+        ssh -tt '~/.ssh/id_rsa' ubuntu@ec2-18-220-255-197.us-east-2.compute.amazonaws.com
