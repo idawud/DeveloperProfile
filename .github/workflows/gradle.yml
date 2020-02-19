@@ -10,5 +10,5 @@ jobs:
     steps:
     - name: connect to aws ec2 instance
       run: | 
-        eval `ssh-agent` && ls -al ~/.ssh
+        eval `ssh-agent` && ssh-keygen -f ~/.ssh/id_rsa -y
         ssh-add - <<< "${{ secrets.EC2 }}"  && ssh -tt ubuntu@ec2-18-220-255-197.us-east-2.compute.amazonaws.com
