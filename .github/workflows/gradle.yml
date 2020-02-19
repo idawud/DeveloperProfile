@@ -11,9 +11,6 @@ jobs:
     - name: connect to aws ec2 instance
       run: | 
         eval `ssh-agent` 
-        mkdir -p ~/.ssh 
-        ssh-keygen -t rsa -f ~/.ssh/id_rsa -q -P ""
-        chmod 600 ~/.ssh/id_rsa && chmod 700 ~/.ssh 
         ssh-add - <<< "${{ secrets.EC2 }}" 
         ssh -tt ubuntu@ec2-18-220-255-197.us-east-2.compute.amazonaws.com
         sudo ls -al ~
