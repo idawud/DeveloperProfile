@@ -8,8 +8,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    -  name: Setup SSH-Agent
-        uses: webfactory/ssh-agent@v0.2.0
-        with:
-          ssh-private-key: |
-            ${{ secrets.EC2 }} 
+    - name: Setup SSH-Agent
+      uses: webfactory/ssh-agent@v0.2.0
+      with:
+        ssh-private-key: |
+          ${{ secrets.EC2 }} 
