@@ -15,8 +15,8 @@ jobs:
             cd /tmp
             ls -a ~
             echo "env_var:$FIRST_NAME"
-          host: "ubuntu@ec2-18-220-255-197.us-east-2.compute.amazonaws.com"
-          user: root
+          host: ec2-18-220-255-197.us-east-2.compute.amazonaws.com
+          user: ubuntu
           key: ${{ secrets.EC2}}
 #          pass: ${{ secrets.PASS }}
           args: "-tt -vvv"
