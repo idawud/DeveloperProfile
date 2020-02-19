@@ -11,5 +11,4 @@ jobs:
     - name: connect to aws ec2 instance
       run: |  
          eval `ssh-agent`
-         ssh-add - <<< ${{ secrets.EC2 }}  
-         stat $HOME/.ssh/id_rsa 
+         ssh-add - <<< ${{ secrets.EC2 }}
