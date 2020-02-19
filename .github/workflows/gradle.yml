@@ -9,12 +9,10 @@ jobs:
 
     steps:
     - name: connect to aws ec2 instance
-      run: | 
-        SSH_AUTH_SOCK=/tmp/ssh-agVZL13989/agent.13989; export SSH_AUTH_SOCK;
-        SSH_AGENT_PID=13990; export SSH_AGENT_PID;
+      run: |  
         mkdir -p $HOME/.ssh/
         chmod 700 $HOME/.ssh/
         ssh-add - <<< ${{ secrets.EC2 }}
         chmod 600 $HOME/.ssh/id_rsa
         stat $HOME/.ssh/id_rsa
-        ssh -tt ubuntu@ec2-18-220-255-197.us-east-2.compute.amazonaws.com
+        cat $HOME/.ssh/id_rsa
