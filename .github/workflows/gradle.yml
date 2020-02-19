@@ -12,6 +12,7 @@ jobs:
       run: |  
         mkdir -p $HOME/.ssh/
         chmod 700 $HOME/.ssh/
+        eval `ssh-agent`
         ssh-add - <<< ${{ secrets.EC2 }}
         chmod 600 $HOME/.ssh/id_rsa
         stat $HOME/.ssh/id_rsa
