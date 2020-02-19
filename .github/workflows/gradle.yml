@@ -11,4 +11,3 @@ jobs:
     - name: connect to aws ec2 instance
       run: |  
          eval `ssh-agent`
-         ssh-add - <<< ${{ secrets.EC2 }}
